@@ -20,7 +20,7 @@ It is recommended that any exposed interface that returns data also names its Re
 ```ts
 export type FetchResult = r.Result<BigDatas, DatabaseError>;
 
-export async function fetch_a_whole_bunch() : FetchResult {
+export async function fetch_a_whole_bunch() : Promise<FetchResult> {
   // ...
 }
 ```
@@ -28,7 +28,7 @@ export async function fetch_a_whole_bunch() : FetchResult {
 This allows users of the interface to be a bit more terse. Oh, and by the way, usage of the above functions would look like this:
 
 ```ts
-let res = fetch_a_whole_bunch();
+let res = await fetch_a_whole_bunch();
 
 if (r.is_ok(res)) {
   // TS understands that res.result will be a BigDatas here
