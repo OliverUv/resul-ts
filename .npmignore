@@ -21,3 +21,6 @@ node_modules/
 # don't ignore all build artifacts !!
 # build/
 build/test/
+
+# but do ignore
+yarn.lock
