@@ -1,7 +1,3 @@
-// This library enforces the opinion that all errors must include a message
-// that describes the error, not necessarily for end user consumption, but for
-// logging or to help communication with other devs.
-
 // This enum (dict lookup) is used instead of direct string comparisons because
 // it is faster at the time of writing. It should be changed when TS allows us
 // to use numbers or Symbols instead of strings as type values for tagging
