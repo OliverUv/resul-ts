@@ -8,7 +8,7 @@
     "clean": "rm -rf ./build",
     "build": "tsc",
     "dev_build": "tsc -p base.tsconfig.json --watch --pretty --noEmitOnError",
-    "lint": "tslint --type-check --project tsconfig.json",
+    "lint": "tslint --type-check --project base.tsconfig.json",
     "test": "ava",
     "dev_test": "ava --watch"
   },
@@ -25,7 +25,7 @@
     "types",
     "tagged union"
   ],
-  "author": "Oliver Uvman",
+  "author": "Oliver Uvman <oliver@uvman.se> (http://vvv.uvman.se/)",
   "license": "MIT",
   "devDependencies": {
     "ava": "^0.18.2",
