@@ -1,0 +1,35 @@
+{
+  "name": "resul-ts",
+  "version": "0.0.1",
+  "description": "Light Result type inspired by Rust's Result type // Haskell/Scala's Either.",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "scripts": {
+    "clean": "rm -rf ./build",
+    "build": "tsc",
+    "dev_build": "tsc -p base.tsconfig.json --watch --pretty --noEmitOnError",
+    "lint": "tslint --type-check --project tsconfig.json",
+    "test": "ava",
+    "dev_test": "ava --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OliverUv/resul-ts.git"
+  },
+  "keywords": [
+    "typescript",
+    "ts",
+    "result",
+    "either",
+    "type",
+    "types",
+    "tagged union"
+  ],
+  "author": "Oliver Uvman",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.18.2",
+    "tslint": "^3.15.1",
+    "typescript": "^2.1.5"
+  }
+}
