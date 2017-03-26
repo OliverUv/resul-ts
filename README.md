@@ -1,11 +1,14 @@
 # resul-ts
 
-* TypeScript needs a Result // Either type.
-* This is it, but without a lot of the niceities. For now.
-* MIT License.
-* Pull requests welcome. Any contributed code is assumed to be MIT licensed.
+Do sometimes wish that functions would declare their failure modes in their type signatures? Do you wish you could read code and assume that the control flow is what it looks like? Or do you simply wish that exceptional control flow was used for truly exceptional and unforeseen circumstances only? You are not alone.
 
-You could look in `src/test/basic.test.ts` to see examples of basic usage, but it would probably take longer than reading and understand than the actual code, which is in `src/index.ts`.
+* TypeScript needs a Result // Either type.
+* This is it.
+* Missing some conveniences. Pull requests welcome.
+* MIT License.
+* Any contributed code is assumed to be MIT licensed.
+
+You could look in `src/test/basic.test.ts` to see examples of basic usage, but it would probably take longer than reading and understanding the actual code, which is in `src/index.ts`.
 
 This library enforces the opinion that all errors must include a message that describes the error, not necessarily for end user consumption, but for logging or to help communication with team members.
 

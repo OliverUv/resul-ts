@@ -1,7 +1,9 @@
 // This enum (dict lookup) is used instead of direct string comparisons because
 // it is faster at the time of writing. It should be changed when TS allows us
-// to use numbers or Symbols instead of strings as type values for tagging
-// kinds.
+// to use numbers instead of strings as type values for tagging kinds.
+//
+// We would not want to use Symbols, because it would prevent people from using
+// this library when they need to target ES5.
 enum SPEED_DICT {
   success = 1,
   error = 2,

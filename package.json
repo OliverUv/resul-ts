@@ -1,7 +1,7 @@
 {
   "name": "resul-ts",
   "version": "0.0.1",
-  "description": "Light Result type inspired by Rust's Result type // Haskell/Scala's Either.",
+  "description": "TypeScript Result type inspired by Rust's Result and Haskell's Either.",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
   "scripts": {
