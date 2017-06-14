@@ -9,8 +9,8 @@
     "build": "tsc",
     "dev_build": "tsc -p base.tsconfig.json --watch --pretty --noEmitOnError",
     "lint": "tslint --type-check --project base.tsconfig.json",
-    "test": "ava",
-    "dev_test": "ava --watch"
+    "test": "ava --verbose",
+    "dev_test": "ava --watch --verbose"
   },
   "repository": {
     "type": "git",
