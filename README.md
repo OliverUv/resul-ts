@@ -4,11 +4,11 @@ Do sometimes wish that functions would declare their failure modes in their type
 
 * TypeScript needs a Result // Either type.
 * This is it.
-* Missing some conveniences. Pull requests welcome.
 * MIT License.
+* Pull requests welcome.
 * Any contributed code is assumed to be MIT licensed.
 
-You could look in `src/test/basic.test.ts` to see examples of basic usage, but it would probably take longer than reading and understanding the actual code, which is in `src/index.ts`.
+Look in `src/test/basic.test.ts` to see examples of basic usage. There is also `src/test/basic.test.ts` which tests and shows use of the convenience functions.
 
 This library enforces the opinion that all errors must include a message that describes the error, not necessarily for end user consumption, but for logging or to help communication with team members.
 
@@ -28,7 +28,7 @@ export async function fetch_a_whole_bunch() : Promise<FetchResult> {
 }
 ```
 
-This allows users of the interface to be a bit more terse. Oh, and by the way, usage of the above functions would look like this:
+Usage of the above functions would look like this:
 
 ```ts
 let res = await fetch_a_whole_bunch();
@@ -45,4 +45,48 @@ if (r.is_success<BigDatas>(res)) {
 if (r.is_success<boolean>(res)) {
   // Nu uh. No!
 }
+
+// Early exit patterns work nicely with TS type inference
+function handle_result(res:FetchResult) {
+  if (r.is_fail(res)) {
+    console.log(`oh no: ${res.message}`)
+    return;
+  }
+  // res is inferred to be a success here
+  console.log(`Hooray: ${res.result}`)
+}
+```
+
+There are some convenience functions:
+
+```ts
+let success_value = 'WOW';
+
+function get_a_string() : r.Result<string, void> {
+  return r.success(success_value);
+};
+
+let res = get_a_string();
+
+function get_length_of_string(st:string):number {
+  return st.length;
+}
+
+// You can map
+let length_if_success = r.map(res, get_length_of_string);
+
+if (r.is_ok(length_if_success)) {
+  // TypeScript can infer that length_if_success.result is a number
+  // length_if_success.result is 3 here
+}
+
+// You can also use `map_over` to do the same thing on a list of results.
+
+// You can eq
+let is_three = r.eq(length_if_success, 3); // true
+is_three = r.eq(length_if_success, 4); // false
+
+// Doing eq with a failure will always return false
+// eq uses`==` comparison
+// You can also do eq_strict for `===` comparison
 ```
