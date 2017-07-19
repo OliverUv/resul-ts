@@ -6,7 +6,7 @@
   "types": "./build/index.d.ts",
   "scripts": {
     "clean": "rm -rf ./build",
-    "build": "tsc",
+    "release_build": "npm run clean && tsc",
     "dev_build": "tsc -p base.tsconfig.json --watch --pretty --noEmitOnError",
     "lint": "tslint --type-check --project base.tsconfig.json",
     "test": "ava --verbose",
