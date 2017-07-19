@@ -18,9 +18,13 @@ node_modules/
 *.log
 .idea/
 
-# don't ignore all build artifacts !!
-# build/
+src/
 build/test/
 
 # but do ignore
 yarn.lock
+base.tsconfig.json
+tsconfig.json
+README.md
+tslint.json
+.npmignore
